@@ -6,18 +6,32 @@ const defaultProjects = [
   {
     id: 1,
     name: "DevTrack",
-    description: "Developer learning and productivity dashboard",
+    description:
+      "A developer learning and productivity dashboard built with React, featuring task tracking, learning progress, goals, and analytics.",
   },
   {
     id: 2,
-    name: "Movie Recommendation System",
-    description: "A movie recommendation application",
+    name: "IP-SAKTI Sahayak",
+    description:
+      "A multilingual, RAG-based AI assistant designed to provide intellectual property and regulatory guidance for Ayurveda.",
   },
   {
     id: 3,
-    name: "IP-SAKTI Sahayak",
+    name: "Movie Recommendation System",
     description:
-      "RAG-based AI assistant for intellectual property guidance",
+      "A personalized movie recommendation application using a Python recommendation engine, Flask API, React frontend, and Supabase.",
+  },
+  {
+    id: 4,
+    name: "Lost & Found Portal",
+    description:
+      "A web application for reporting lost and found items, browsing listings, and managing posts with authentication and database integration.",
+  },
+  {
+    id: 5,
+    name: "AgriAid",
+    description:
+      "An agriculture assistance platform concept designed to help users access useful agricultural information and resources.",
   },
 ];
 

@@ -1,22 +1,37 @@
 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {
+  LayoutDashboard,
+  BookOpen,
+  CheckSquare,
+  Rocket,
+  NotebookPen,
+  Target,
+  ChartNoAxesColumn,
+  Settings,
+  X,
+  Menu,
+} from "lucide-react";
 import styles from "./Sidebar.module.css";
 
 const navigationItems = [
-  { label: "Dashboard", icon: "🏠", path: "/", end: true },
-  { label: "Learning", icon: "📚", path: "/learning" },
-  { label: "Tasks", icon: "✅", path: "/tasks" },
-  { label: "Projects", icon: "🚀", path: "/projects" },
-  { label: "Notes", icon: "📝", path: "/notes" },
-  { label: "Goals", icon: "🎯", path: "/goals" },
-  { label: "Analytics", icon: "📊", path: "/analytics" },
-  { label: "Settings", icon: "⚙️", path: "/settings" },
+  { label: "Dashboard", icon: LayoutDashboard, path: "/", end: true },
+  { label: "Learning", icon: BookOpen, path: "/learning" },
+  { label: "Tasks", icon: CheckSquare, path: "/tasks" },
+  { label: "Projects", icon: Rocket, path: "/projects" },
+  { label: "Notes", icon: NotebookPen, path: "/notes" },
+  { label: "Goals", icon: Target, path: "/goals" },
+  {
+    label: "Analytics",
+    icon: ChartNoAxesColumn,
+    path: "/analytics",
+  },
+  { label: "Settings", icon: Settings, path: "/settings" },
 ];
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const closeSidebar = () => setIsOpen(false);
 
   return (
@@ -29,7 +44,7 @@ function Sidebar() {
         aria-expanded={isOpen}
         aria-controls="devtrack-sidebar"
       >
-        {isOpen ? "✕" : "☰"}
+        {isOpen ? <X size={22} /> : <Menu size={22} />}
       </button>
 
       {isOpen && (
@@ -54,28 +69,37 @@ function Sidebar() {
 
           <nav aria-label="Main navigation">
             <ul className={styles.navList}>
-              {navigationItems.map((item) => (
-                <li key={item.label} className={styles.navItem}>
-                  <NavLink
-                    to={item.path}
-                    end={item.end}
-                    onClick={closeSidebar}
-                    className={({ isActive }) =>
-                      [
-                        styles.navLink,
-                        isActive ? styles.active : "",
-                      ]
-                        .filter(Boolean)
-                        .join(" ")
-                    }
-                  >
-                    <span className={styles.navIcon} aria-hidden="true">
-                      {item.icon}
-                    </span>
-                    <span className={styles.navLabel}>{item.label}</span>
-                  </NavLink>
-                </li>
-              ))}
+              {navigationItems.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <li key={item.label} className={styles.navItem}>
+                    <NavLink
+                      to={item.path}
+                      end={item.end}
+                      onClick={closeSidebar}
+                      className={({ isActive }) =>
+                        [
+                          styles.navLink,
+                          isActive ? styles.active : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ")
+                      }
+                    >
+                      <Icon
+                        className={styles.navIcon}
+                        size={20}
+                        strokeWidth={1.9}
+                        aria-hidden="true"
+                      />
+                      <span className={styles.navLabel}>
+                        {item.label}
+                      </span>
+                    </NavLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>

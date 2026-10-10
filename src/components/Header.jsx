@@ -1,4 +1,4 @@
-
+import { AudioLines } from "lucide-react";
 import useUser from "../hooks/useUser";
 import styles from "./Header.module.css";
 
@@ -12,7 +12,14 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.brand}>
-        <h1>DevTrack 🚀</h1>
+        <h1>
+          DevTrack
+          <AudioLines
+            size={23}
+            strokeWidth={2}
+            aria-label="DevTrack"
+          />
+        </h1>
         <span>Developer Dashboard</span>
       </div>
 

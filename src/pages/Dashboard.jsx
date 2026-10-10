@@ -1,4 +1,3 @@
-
 import useLocalStorage from "../hooks/useLocalStorage";
 import useUser from "../hooks/useUser";
 import useProjects from "../hooks/useProjects";
@@ -8,11 +7,9 @@ import StatCard from "../components/StatCard";
 import LearningProgress from "../components/LearningProgress";
 import ProgressChart from "../components/ProgressChart";
 
-import {
-  defaultTasks,
-  defaultTopics,
-  defaultGoals,
-} from "../data/defaults";
+import { defaultTasks, defaultTopics, defaultGoals } from "../data/defaults";
+
+import { BookOpen, ListTodo, Rocket } from "lucide-react";
 
 import styles from "./Dashboard.module.css";
 
@@ -26,15 +23,11 @@ function Dashboard() {
   const { projects } = useProjects();
 
   const totalTasks = tasks.length;
-  const completedTasks = tasks.filter(
-    (task) => task.completed
-  ).length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
   const pendingTasks = totalTasks - completedTasks;
 
   const taskCompletionRate =
-    totalTasks === 0
-      ? 0
-      : Math.round((completedTasks / totalTasks) * 100);
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
 
   const totalTopics = topics.length;
 
@@ -49,14 +42,10 @@ function Dashboard() {
   }, 0);
 
   const learningAverage =
-    totalTopics === 0
-      ? 0
-      : Math.round(totalProgress / totalTopics);
+    totalTopics === 0 ? 0 : Math.round(totalProgress / totalTopics);
 
   const totalGoals = goals.length;
-  const completedGoals = goals.filter(
-    (goal) => goal.completed
-  ).length;
+  const completedGoals = goals.filter((goal) => goal.completed).length;
   const activeGoals = totalGoals - completedGoals;
 
   const totalProjects = projects.length;
@@ -73,29 +62,27 @@ function Dashboard() {
           title="Learning Topics"
           value={totalTopics}
           description="Topics you're currently learning"
-          icon="📚"
+          icon={<BookOpen size={22} />}
         />
 
         <StatCard
           title="Pending Tasks"
           value={pendingTasks}
           description={`${completedTasks} tasks completed`}
-          icon="✅"
+          icon={<ListTodo size={22} />}
         />
 
         <StatCard
           title="Active Projects"
           value={totalProjects}
           description="Projects in your workspace"
-          icon="🚀"
+          icon={<Rocket size={22} />}
         />
       </div>
 
       <div className={styles.overviewGrid}>
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Task Overview
-          </h2>
+          <h2 className={styles.sectionTitle}>Task Overview</h2>
 
           <div className={styles.overviewStats}>
             <div className={styles.overviewStat}>
@@ -134,9 +121,7 @@ function Dashboard() {
         </section>
 
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Goals Overview
-          </h2>
+          <h2 className={styles.sectionTitle}>Goals Overview</h2>
 
           <div className={styles.overviewStats}>
             <div className={styles.overviewStat}>
@@ -158,9 +143,7 @@ function Dashboard() {
       </div>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>
-          Task Completion
-        </h2>
+        <h2 className={styles.sectionTitle}>Task Completion</h2>
 
         <ProgressChart
           completed={completedTasks}
@@ -170,12 +153,8 @@ function Dashboard() {
         />
       </section>
 
-      <section
-        className={`${styles.section} ${styles.learningSection}`}
-      >
-        <h2 className={styles.sectionTitle}>
-          Learning Progress
-        </h2>
+      <section className={`${styles.section} ${styles.learningSection}`}>
+        <h2 className={styles.sectionTitle}>Learning Progress</h2>
 
         <div className={styles.learningAverage}>
           <strong>{learningAverage}%</strong>
@@ -185,12 +164,8 @@ function Dashboard() {
         <LearningProgress topics={topics} />
       </section>
 
-      <section
-        className={`${styles.section} ${styles.projectsSection}`}
-      >
-        <h2 className={styles.sectionTitle}>
-          Projects Overview
-        </h2>
+      <section className={`${styles.section} ${styles.projectsSection}`}>
+        <h2 className={styles.sectionTitle}>Projects Overview</h2>
 
         <div className={styles.overviewStats}>
           <div className={styles.overviewStat}>
