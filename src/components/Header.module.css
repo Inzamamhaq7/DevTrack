@@ -1,7 +1,5 @@
 
-/* =========================================
-   DEVTRACK — CLAYMORPHISM HEADER
-========================================= */
+/* DEVTRACK — RESPONSIVE CLAYMORPHISM HEADER */
 
 .header {
   position: relative;
@@ -15,6 +13,7 @@
   width: 100%;
   min-width: 0;
   min-height: 88px;
+  box-sizing: border-box;
   padding: 18px clamp(20px, 3vw, 38px);
 
   background: rgba(250, 249, 255, 0.92);
@@ -34,7 +33,6 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-
   min-width: 0;
 }
 
@@ -42,7 +40,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   margin: 0;
 
   color: #302b55;
@@ -66,16 +63,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   flex-shrink: 0;
   max-width: 240px;
   min-width: 0;
-
   padding: 8px 15px 8px 9px;
 
   border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 20px;
-
   background: linear-gradient(145deg, #fbfaff, #efedfa);
 
   box-shadow:
@@ -89,7 +83,6 @@
 
 .user:hover {
   transform: translateY(-1px);
-
   box-shadow:
     6px 7px 16px rgba(88, 79, 145, 0.10),
     -4px -4px 12px rgba(255, 255, 255, 0.95);
@@ -101,14 +94,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 42px;
   height: 42px;
   flex-shrink: 0;
 
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 15px;
-
   background: linear-gradient(145deg, #9281f5, #7160df);
   color: #ffffff;
 
@@ -127,13 +118,11 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-
   min-width: 0;
 }
 
 .info strong {
   overflow: hidden;
-
   color: #383452;
   font-size: 13px;
   font-weight: 700;
@@ -144,7 +133,6 @@
 
 .info span {
   overflow: hidden;
-
   color: #8b87a5;
   font-size: 11px;
   font-weight: 500;
@@ -158,8 +146,8 @@
 @media (max-width: 700px) {
   .header {
     min-height: 78px;
-    padding: 14px 20px;
-    gap: 14px;
+    padding: 14px 16px 14px 70px;
+    gap: 12px;
   }
 
   .user {
@@ -179,43 +167,73 @@
 @media (max-width: 480px) {
   .header {
     min-height: 72px;
-    padding: 12px 14px;
-    gap: 10px;
+    padding: 12px 10px 12px 68px;
+    gap: 8px;
   }
 
   .brand {
+    flex: 1 1 auto;
     gap: 1px;
   }
 
   .brand h1 {
-    font-size: 19px;
+    font-size: 17px;
     letter-spacing: -0.6px;
+    white-space: nowrap;
   }
 
   .brand span {
-    font-size: 10px;
+    font-size: 9px;
+    white-space: nowrap;
   }
 
   .user {
-    gap: 7px;
-    max-width: 155px;
-    padding: 6px 9px 6px 6px;
-    border-radius: 16px;
+    flex: 0 1 auto;
+    gap: 6px;
+    max-width: 125px;
+    padding: 5px 7px 5px 5px;
+    border-radius: 14px;
   }
 
   .avatar {
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
-    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 13px;
   }
 
   .info strong {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .info span {
-    font-size: 10px;
+    font-size: 9px;
+  }
+}
+
+/* Very narrow phones */
+
+@media (max-width: 360px) {
+  .header {
+    padding-right: 7px;
+    padding-left: 64px;
+    gap: 5px;
+  }
+
+  .brand h1 {
+    font-size: 15px;
+  }
+
+  .brand span {
+    font-size: 8px;
+  }
+
+  .user {
+    max-width: 100px;
+  }
+
+  .info span {
+    display: none;
   }
 }
 
