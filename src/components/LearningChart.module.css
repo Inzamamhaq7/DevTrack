@@ -1,0 +1,114 @@
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Topic */
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.topicHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  min-width: 0;
+}
+
+.topicHeader span {
+  min-width: 0;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.topicHeader strong {
+  flex-shrink: 0;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress bar */
+
+.bar {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #111827;
+  transition: width 0.3s ease;
+}
+
+/* Empty state */
+
+.empty {
+  padding: 26px 20px;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  background: #f9fafb;
+  text-align: center;
+}
+
+.empty p {
+  margin: 0 0 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.empty span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Responsive layout */
+
+@media (max-width: 480px) {
+  .chart {
+    gap: 19px;
+  }
+
+  .topicHeader span,
+  .topicHeader strong {
+    font-size: 13px;
+  }
+
+  .bar {
+    height: 8px;
+  }
+
+  .empty {
+    padding: 22px 16px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

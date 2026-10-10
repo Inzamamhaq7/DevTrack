@@ -1,0 +1,177 @@
+
+.sidebar {
+  width: 240px;
+  height: 100%;
+  flex-shrink: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+/* Sidebar content */
+
+.sidebarContent {
+  padding: 24px 16px;
+}
+
+/* Section title */
+
+.sidebarTitle {
+  margin-bottom: 12px;
+  padding: 0 12px;
+}
+
+.sidebarTitle span {
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navItem {
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 42px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  color: #6b7280;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.navLink:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.navLink:focus-visible {
+  outline: 2px solid #6b7280;
+  outline-offset: 2px;
+}
+
+.active {
+  background: #111827;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.active:hover {
+  background: #374151;
+  color: #ffffff;
+}
+
+/* Icons and labels */
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  flex-shrink: 0;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.navLabel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #d1d5db;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 210px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 72px;
+  }
+
+  .sidebarContent {
+    padding: 20px 8px;
+  }
+
+  .sidebarTitle {
+    display: none;
+  }
+
+  .navLink {
+    justify-content: center;
+    gap: 0;
+    padding: 12px 8px;
+  }
+
+  .navLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebarContent {
+    padding: 16px 6px;
+  }
+
+  .navLink {
+    padding: 12px 6px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink {
+    transition: none;
+  }
+}

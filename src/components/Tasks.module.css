@@ -1,0 +1,105 @@
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f1f3;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.details {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.completed .title {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.completeButton {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.completeButton:hover {
+  background: #d1fae5;
+}
+
+.editButton {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.editButton:hover {
+  background: #e5e7eb;
+}
+
+.deleteButton {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.deleteButton:hover {
+  background: #fee2e2;
+}
+
+.editForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+}
+
+.secondaryButton {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.secondaryButton:hover {
+  background: #e5e7eb;
+}
+
+@media (max-width: 650px) {
+  .item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .editForm {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

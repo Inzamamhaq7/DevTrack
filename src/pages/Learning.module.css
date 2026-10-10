@@ -1,0 +1,263 @@
+
+.page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 28px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.pageHeader p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 20px;
+}
+
+/* Add topic form */
+
+.addForm {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.addForm input {
+  flex: 1;
+  min-width: 0;
+}
+
+.addForm button {
+  flex-shrink: 0;
+}
+
+/* Topic cards */
+
+.topicGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.topicCard {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.topicCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+.topicHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.topicTitle {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.topicDescription {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Progress */
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.progressValue {
+  flex-shrink: 0;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e5e7eb;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: #111827;
+  transition: width 0.3s ease;
+}
+
+/* Card actions */
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cardActions button {
+  font-size: 13px;
+}
+
+.deleteButton {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.deleteButton:hover {
+  background: #fee2e2;
+}
+
+.secondaryButton {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.secondaryButton:hover {
+  background: #e5e7eb;
+}
+
+/* Edit topic form */
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.editForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.editForm input[type="range"] {
+  padding: 0;
+  accent-color: #111827;
+  cursor: pointer;
+}
+
+.editForm input[type="text"] {
+  min-width: 0;
+}
+
+.editForm .cardActions {
+  margin-top: 0;
+}
+
+/* Empty state */
+
+.empty {
+  padding: 32px 20px;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.empty p {
+  margin: 4px 0;
+}
+
+/* Responsive layout */
+
+@media (max-width: 750px) {
+  .topicGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .addForm {
+    flex-direction: column;
+  }
+
+  .addForm button {
+    width: 100%;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topicCard {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader h1 {
+    font-size: 26px;
+  }
+
+  .cardActions button {
+    flex: 1;
+  }
+}

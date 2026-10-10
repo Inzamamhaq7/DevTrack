@@ -1,0 +1,314 @@
+
+.analytics {
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+/* Page header */
+
+.pageHeader {
+  margin-bottom: 28px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.pageHeader p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Summary cards */
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.summaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.summaryCard span {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.summaryCard strong {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  overflow-wrap: anywhere;
+}
+
+/* Analytics grid */
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+
+.section {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.sectionTitle {
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* Task progress */
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 22px 0 10px;
+}
+
+.progressHeader span {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.progressHeader span:last-child {
+  color: #111827;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.progressBar {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: #111827;
+  transition: width 0.3s ease;
+}
+
+.description {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Goals overview */
+
+.goalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.goalCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #f0f1f3;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.goalCard strong {
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.goalCard span {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Learning analytics */
+
+.learningStats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  min-width: 0;
+  margin-bottom: 26px;
+}
+
+.learningPercentage {
+  flex-shrink: 0;
+  color: #111827;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.learningInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.learningInfo strong {
+  color: #111827;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.learningInfo span {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .analyticsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pageHeader h1 {
+    font-size: 26px;
+  }
+
+  .pageHeader p {
+    font-size: 14px;
+  }
+
+  .summaryGrid {
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .summaryCard {
+    padding: 18px;
+  }
+
+  .summaryCard strong {
+    font-size: 26px;
+  }
+
+  .analyticsGrid {
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .section {
+    padding: 18px;
+  }
+
+  .goalGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .goalCard {
+    padding: 12px 10px;
+  }
+
+  .goalCard strong {
+    font-size: 21px;
+  }
+
+  .goalCard span {
+    font-size: 12px;
+  }
+
+  .learningStats {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .learningPercentage {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .goalGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .summaryCard {
+    transition: none;
+  }
+
+  .summaryCard:hover {
+    transform: none;
+  }
+
+  .progressFill {
+    transition: none;
+  }
+}
