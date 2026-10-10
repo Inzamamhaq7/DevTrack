@@ -1,9 +1,17 @@
 
+/* =========================================
+   DEVTRACK — NOTES PAGE
+   Soft Claymorphism Theme
+   ========================================= */
+
 .page {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
+  min-width: 0;
   margin: 0 auto;
 }
+
+/* Page heading */
 
 .pageHeader {
   display: flex;
@@ -15,20 +23,25 @@
 
 .pageHeader h1 {
   margin: 0;
-  color: #111827;
+  color: var(--text-primary, #292747);
   font-size: 30px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
 }
 
 .pageHeader p {
-  margin: 8px 0 0;
-  color: #6b7280;
-  font-size: 15px;
-  line-height: 1.6;
+  max-width: 700px;
+  margin: 9px 0 0;
+  color: var(--text-secondary, #77758f);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
+/* Section layout */
+
 .section {
+  min-width: 0;
   margin-bottom: 28px;
 }
 
@@ -37,128 +50,124 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .sectionHeader h2 {
   margin: 0;
-  color: #111827;
-  font-size: 20px;
+  color: var(--text-primary, #292747);
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
 }
 
 .noteCount {
-  padding: 5px 10px;
-  border-radius: 20px;
-  background: #f3f4f6;
-  color: #4b5563;
-  font-size: 12px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f0edff, #e5e0ff);
+  box-shadow: 3px 3px 7px rgba(112, 104, 166, 0.07);
+  color: #6252d2;
+  font-size: 11px;
+  font-weight: 750;
 }
 
-/* Add note form */
+/* Note editor */
 
 .formCard {
-  margin-bottom: 28px;
-  padding: 24px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+  margin-bottom: 30px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f8f7ff, #eeecfa);
+  box-shadow:
+    7px 7px 18px rgba(112, 104, 166, 0.08),
+    -7px -7px 18px rgba(255, 255, 255, 0.9);
+}
+
+.formCard .sectionHeader {
+  margin-bottom: 22px;
+}
+
+.formCard .sectionHeader h2 {
+  font-size: 17px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 19px;
+  min-width: 0;
 }
 
 .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 }
 
 .label {
-  color: #374151;
+  color: var(--text-primary, #393653);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 750;
+}
+
+/* Input fields */
+
+.input,
+.textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #e2def3;
+  border-radius: 12px;
+  outline: none;
+  background: #f8f7ff;
+  box-shadow: inset 2px 2px 5px rgba(112, 104, 166, 0.06);
+  color: var(--text-primary, #292747);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input {
-  width: 100%;
-  min-width: 0;
+  min-height: 44px;
 }
 
 .textarea {
-  width: 100%;
-  min-height: 120px;
+  min-height: 130px;
   resize: vertical;
-  line-height: 1.7;
+  white-space: pre-wrap;
 }
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aaa7bd;
+  opacity: 1;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #9285f5;
+  box-shadow: 0 0 0 3px rgba(116, 98, 232, 0.12);
+}
+
+/* Form buttons */
 
 .formActions {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  gap: 10px;
-}
-
-/* Notes grid */
-
-.noteGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.noteCard {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  padding: 22px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.noteCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
-}
-
-.noteTitle {
-  margin: 0 0 10px;
-  color: #111827;
-  font-size: 16px;
-  font-weight: 650;
-  overflow-wrap: anywhere;
-}
-
-.noteContent {
-  margin: 0 0 20px;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.8;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.noteDate {
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid #f0f1f3;
-  color: #9ca3af;
-  font-size: 12px;
-}
-
-.noteActions {
-  display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 10px;
+  padding-top: 6px;
 }
 
 .primaryButton,
@@ -167,84 +176,203 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 13px;
-  border: none;
-  border-radius: 8px;
+  min-height: 39px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .primaryButton {
-  background: #111827;
+  background: #7462e8;
   color: #ffffff;
+  box-shadow: 3px 4px 8px rgba(105, 86, 216, 0.17);
 }
 
 .primaryButton:hover {
-  background: #374151;
+  background: #6252d2;
+  box-shadow: 4px 5px 10px rgba(105, 86, 216, 0.2);
+  transform: translateY(-1px);
 }
 
 .secondaryButton {
-  background: #f3f4f6;
-  color: #374151;
+  background: #ebe8f8;
+  color: #625c7a;
+  box-shadow: 2px 3px 6px rgba(112, 104, 166, 0.07);
 }
 
 .secondaryButton:hover {
-  background: #e5e7eb;
+  background: #e2def3;
 }
 
 .deleteButton {
-  background: #fef2f2;
-  color: #b91c1c;
+  background: #fff0f1;
+  color: #b33e52;
+  box-shadow: 2px 3px 6px rgba(179, 62, 82, 0.06);
 }
 
 .deleteButton:hover {
-  background: #fee2e2;
+  background: #ffe1e5;
+}
+
+.primaryButton:active,
+.secondaryButton:active,
+.deleteButton:active {
+  transform: scale(0.98);
+}
+
+/* Notes grid */
+
+.noteGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Individual note card */
+
+.noteCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 19px;
+  background: linear-gradient(145deg, #ffffff, #f2efff);
+  box-shadow:
+    5px 5px 14px rgba(112, 104, 166, 0.08),
+    -5px -5px 14px rgba(255, 255, 255, 0.95);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.noteCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(146, 133, 245, 0.3);
+  box-shadow:
+    8px 10px 20px rgba(112, 104, 166, 0.11),
+    -5px -5px 13px rgba(255, 255, 255, 0.98);
+}
+
+.noteTitle {
+  margin: 0 0 11px;
+  color: var(--text-primary, #292747);
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.noteContent {
+  flex: 1;
+  margin: 0 0 20px;
+  color: var(--text-secondary, #77758f);
+  font-size: 13px;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.noteDate {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(116, 98, 232, 0.12);
+  color: #928da9;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.noteActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
 }
 
 /* Empty state */
 
 .empty {
-  padding: 38px 22px;
-  border: 1px dashed #d1d5db;
-  border-radius: 12px;
-  background: #ffffff;
+  padding: 40px 22px;
+  border: 1px dashed rgba(116, 98, 232, 0.3);
+  border-radius: 19px;
+  background: linear-gradient(145deg, #f8f7ff, #eeecfa);
+  box-shadow: inset 2px 2px 6px rgba(112, 104, 166, 0.04);
   text-align: center;
 }
 
 .empty h3 {
-  margin: 0 0 8px;
-  color: #111827;
+  margin: 0 0 9px;
+  color: var(--text-primary, #292747);
   font-size: 17px;
+  font-weight: 750;
 }
 
 .empty p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+  color: var(--text-secondary, #77758f);
+  font-size: 13px;
+  line-height: 1.8;
 }
 
-/* Responsive layout */
+/* Keyboard accessibility */
 
-@media (max-width: 750px) {
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.deleteButton:focus-visible,
+.input:focus-visible,
+.textarea:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.45);
+  outline-offset: 3px;
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
   .noteGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .noteCard {
+    padding: 20px;
   }
 }
+
+/* Mobile */
 
 @media (max-width: 600px) {
   .pageHeader {
     flex-direction: column;
   }
 
+  .pageHeader h1 {
+    font-size: 26px;
+  }
+
+  .pageHeader p {
+    font-size: 13px;
+  }
+
   .formCard {
-    padding: 18px;
+    padding: 19px;
+    border-radius: 18px;
   }
 
   .formActions {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .formActions button {
@@ -253,16 +381,42 @@
 }
 
 @media (max-width: 480px) {
-  .pageHeader h1 {
-    font-size: 26px;
-  }
-
   .sectionHeader {
     align-items: flex-start;
     flex-direction: column;
   }
 
   .noteCard {
-    padding: 18px;
+    padding: 17px;
+    border-radius: 16px;
+  }
+
+  .noteActions button {
+    flex: 1;
+  }
+
+  .empty {
+    padding: 30px 16px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .noteCard,
+  .primaryButton,
+  .secondaryButton,
+  .deleteButton,
+  .input,
+  .textarea {
+    transition: none;
+  }
+
+  .noteCard:hover,
+  .primaryButton:hover,
+  .primaryButton:active,
+  .secondaryButton:active,
+  .deleteButton:active {
+    transform: none;
   }
 }

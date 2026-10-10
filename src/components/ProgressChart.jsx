@@ -11,116 +11,91 @@ function ProgressChart({
   const completedPercentage =
     total === 0
       ? 0
-      : Math.round(
-          (completed / total) * 100,
-        );
+      : Math.round((completed / total) * 100);
 
   const radius = 70;
-
-  const circumference =
-    2 * Math.PI * radius;
+  const circumference = 2 * Math.PI * radius;
 
   const completedOffset =
     circumference -
-    (completedPercentage / 100) *
-      circumference;
+    (completedPercentage / 100) * circumference;
 
   return (
     <div className={styles.chart}>
-
-      {/* =========================
-          CHART
-      ========================= */}
-
+      {/* Circular progress chart */}
       <div className={styles.circle}>
-
         <svg
           viewBox="0 0 180 180"
           className={styles.svg}
+          role="img"
+          aria-label={`${completedPercentage}% of tasks completed`}
         >
-          {/* Background */}
-
+          {/* Background ring */}
           <circle
             cx="90"
             cy="90"
             r={radius}
             fill="none"
-            stroke="#e5e7eb"
+            stroke="#dedaf2"
             strokeWidth="18"
           />
 
-          {/* Completed */}
-
-          <circle
-            cx="90"
-            cy="90"
-            r={radius}
-            fill="none"
-            stroke="#111827"
-            strokeWidth="18"
-            strokeLinecap="round"
-            strokeDasharray={circumference}
-            strokeDashoffset={
-              completedOffset
-            }
-            transform="rotate(-90 90 90)"
-          />
+          {/* Completed ring */}
+          {completedPercentage > 0 && (
+            <circle
+              cx="90"
+              cy="90"
+              r={radius}
+              fill="none"
+              stroke="#7462e8"
+              strokeWidth="18"
+              strokeLinecap={
+                completedPercentage === 100
+                  ? "butt"
+                  : "round"
+              }
+              strokeDasharray={circumference}
+              strokeDashoffset={completedOffset}
+              transform="rotate(-90 90 90)"
+              style={{
+                transition: "stroke-dashoffset 500ms ease",
+              }}
+            />
+          )}
         </svg>
 
         <div className={styles.center}>
-          <strong>
-            {completedPercentage}%
-          </strong>
-
-          <span>
-            {completedLabel}
-          </span>
+          <strong>{completedPercentage}%</strong>
+          <span>{completedLabel}</span>
         </div>
-
       </div>
 
-
-      {/* =========================
-          LEGEND
-      ========================= */}
-
+      {/* Chart legend */}
       <div className={styles.legend}>
-
         <div className={styles.legendItem}>
           <span
             className={`${styles.legendDot} ${styles.completedDot}`}
+            aria-hidden="true"
           />
 
           <div className={styles.legendInfo}>
-            <strong>
-              {completed}
-            </strong>
-
-            <span>
-              {completedLabel}
-            </span>
+            <strong>{completed}</strong>
+            <span>{completedLabel}</span>
           </div>
         </div>
-
 
         <div className={styles.legendItem}>
           <span
             className={`${styles.legendDot} ${styles.pendingDot}`}
+            aria-hidden="true"
           />
 
           <div className={styles.legendInfo}>
-            <strong>
-              {pending}
-            </strong>
-
-            <span>
-              {pendingLabel}
-            </span>
+            <strong>{pending}</strong>
+            <span>{pendingLabel}</span>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }

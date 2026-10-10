@@ -1,18 +1,19 @@
+/* Learning chart container */
 
 .chart {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 24px;
   width: 100%;
   min-width: 0;
 }
 
-/* Topic */
+/* Individual learning topic */
 
 .topic {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -20,66 +21,75 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 15px;
+  gap: 14px;
   min-width: 0;
 }
 
 .topicHeader span {
   min-width: 0;
-  color: #374151;
+  color: var(--text-primary, #302d48);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 550;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
 .topicHeader strong {
   flex-shrink: 0;
-  color: #111827;
+  color: var(--brand-primary, #7462e8);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 750;
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
 }
 
-/* Progress bar */
+/* Soft Claymorphism progress bar */
 
 .bar {
+  position: relative;
   width: 100%;
-  height: 9px;
+  height: 12px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 999px;
-  background: #e5e7eb;
+  background: #e5e3f3;
+  box-shadow:
+    inset 2px 2px 5px rgba(130, 125, 166, 0.16),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.85);
 }
 
 .fill {
   height: 100%;
   border-radius: inherit;
-  background: #111827;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #a69af9, #7462e8);
+  box-shadow: 0 2px 6px rgba(116, 98, 232, 0.25);
+  transition: width 0.35s ease;
 }
 
 /* Empty state */
 
 .empty {
-  padding: 26px 20px;
-  border: 1px dashed #d1d5db;
-  border-radius: 10px;
-  background: #f9fafb;
+  padding: 25px 20px;
+  border: 1px dashed #d4cffa;
+  border-radius: 17px;
+  background: #f0effb;
+  box-shadow:
+    inset 3px 3px 7px rgba(151, 147, 190, 0.08),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.8);
   text-align: center;
 }
 
 .empty p {
   margin: 0 0 8px;
-  color: #374151;
+  color: var(--text-primary, #302d48);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.5;
 }
 
 .empty span {
   display: block;
-  color: #6b7280;
+  color: var(--text-secondary, #77738f);
   font-size: 13px;
   line-height: 1.7;
 }
@@ -88,7 +98,7 @@
 
 @media (max-width: 480px) {
   .chart {
-    gap: 19px;
+    gap: 20px;
   }
 
   .topicHeader span,
@@ -97,7 +107,7 @@
   }
 
   .bar {
-    height: 8px;
+    height: 10px;
   }
 
   .empty {

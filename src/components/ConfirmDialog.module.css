@@ -1,3 +1,4 @@
+/* Modal overlay */
 
 .overlay {
   position: fixed;
@@ -7,65 +8,126 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(17, 24, 39, 0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(48, 45, 72, 0.4);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 }
+
+/* Confirmation dialog */
 
 .dialog {
   width: 100%;
   max-width: 420px;
-  padding: 26px;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
-  animation: dialogEnter 0.18s ease-out;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  background: var(--surface, #f2f1fc);
+  box-shadow:
+    12px 12px 28px rgba(48, 45, 72, 0.18),
+    -8px -8px 22px rgba(255, 255, 255, 0.85);
+  animation: dialogEnter 0.2s ease-out;
 }
+
+/* Title */
 
 .title {
   margin: 0 0 12px;
-  color: #111827;
-  font-size: 21px;
-  font-weight: 700;
-}
-
-.message {
-  margin: 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.7;
+  color: var(--text-primary, #302d48);
+  font-size: 22px;
+  font-weight: 750;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 26px;
+/* Message */
+
+.message {
+  margin: 0;
+  color: var(--text-secondary, #77738f);
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 
+/* Action buttons */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cancelButton,
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 11px 19px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Cancel button */
+
 .cancelButton {
-  background: #f3f4f6;
-  color: #374151;
+  border-color: #e2dff2;
+  background: #eeecfa;
+  color: var(--text-primary, #494560);
+  box-shadow:
+    4px 4px 8px rgba(151, 147, 190, 0.13),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
 }
 
 .cancelButton:hover {
-  background: #e5e7eb;
+  background: #e5e2f7;
 }
 
+/* Delete button */
+
 .deleteButton {
-  background: #dc2626;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: #b8324a;
   color: #ffffff;
+  box-shadow: 4px 4px 9px rgba(184, 50, 74, 0.18);
 }
 
 .deleteButton:hover {
-  background: #b91c1c;
+  background: #98263b;
+  box-shadow: 5px 5px 12px rgba(184, 50, 74, 0.22);
 }
+
+/* Keyboard accessibility */
+
+.cancelButton:focus-visible,
+.deleteButton:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.4);
+  outline-offset: 3px;
+}
+
+.cancelButton:active,
+.deleteButton:active {
+  transform: translateY(1px);
+}
+
+/* Entry animation */
 
 @keyframes dialogEnter {
   from {
     opacity: 0;
-    transform: translateY(8px) scale(0.98);
+    transform: translateY(10px) scale(0.97);
   }
 
   to {
@@ -74,16 +136,44 @@
   }
 }
 
+/* Responsive layout */
+
 @media (max-width: 480px) {
   .dialog {
-    padding: 22px;
+    padding: 23px;
+    border-radius: 21px;
+  }
+
+  .title {
+    font-size: 20px;
   }
 
   .actions {
     flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .actions button {
     width: 100%;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    animation: none;
+  }
+
+  .cancelButton,
+  .deleteButton {
+    transition: none;
+  }
+
+  .cancelButton:active,
+  .deleteButton:active {
+    transform: none;
   }
 }

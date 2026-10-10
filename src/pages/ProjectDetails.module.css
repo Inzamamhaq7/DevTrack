@@ -1,33 +1,55 @@
 
+/* =========================================
+   DEVTRACK — PROJECT DETAILS
+   Soft Claymorphism Theme
+   ========================================= */
+
 .page {
   width: 100%;
   max-width: 1100px;
+  min-width: 0;
   margin: 0 auto;
 }
+
+/* Back navigation */
 
 .backLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
-  color: #6b7280;
-  font-size: 14px;
-  font-weight: 600;
+  color: #7462e8;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .backLink:hover {
-  color: #111827;
+  color: #5948c6;
+  text-decoration: underline;
 }
 
-.projectCard {
-  padding: 28px;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+.backLink:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.4);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
+
+/* Main project card */
+
+.projectCard {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f8f7ff, #eeecfa);
+  box-shadow:
+    7px 7px 18px rgba(112, 104, 166, 0.09),
+    -7px -7px 18px rgba(255, 255, 255, 0.9);
+}
+
+/* Project header */
 
 .header {
   display: flex;
@@ -39,28 +61,35 @@
 
 .heading {
   min-width: 0;
+  flex: 1;
 }
 
 .title {
   margin: 0;
-  color: #111827;
+  color: #292747;
   font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.6px;
   overflow-wrap: anywhere;
 }
 
 .subtitle {
-  margin: 10px 0 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
+  margin: 0 0 9px;
+  color: #8175d9;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.6;
 }
 
+/* Project information sections */
+
 .section {
-  padding-top: 24px;
-  border-top: 1px solid #f0f1f3;
+  min-width: 0;
+  padding-top: 23px;
+  border-top: 1px solid rgba(116, 98, 232, 0.14);
 }
 
 .section + .section {
@@ -68,19 +97,26 @@
 }
 
 .sectionTitle {
-  margin: 0 0 14px;
-  color: #111827;
-  font-size: 17px;
-  font-weight: 650;
+  display: block;
+  margin: 0 0 12px;
+  color: #393653;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 .description {
   margin: 0;
-  color: #4b5563;
-  font-size: 14px;
-  line-height: 1.8;
+  color: #77758f;
+  font-size: 13px;
+  line-height: 1.9;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.description strong {
+  color: #4d4969;
+  font-weight: 750;
 }
 
 /* Edit form */
@@ -89,6 +125,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
 .projectCard form .header {
@@ -102,37 +139,62 @@
 }
 
 .projectCard form label {
-  color: #374151;
-  font-size: 14px;
-  font-weight: 600;
+  color: #393653;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 .projectCard form input,
 .projectCard form textarea {
+  display: block;
   width: 100%;
   min-width: 0;
   padding: 12px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #111827;
-  font-size: 14px;
+  border: 1px solid #e2def3;
+  border-radius: 12px;
   outline: none;
+  background: #f8f7ff;
+  box-shadow: inset 2px 2px 5px rgba(112, 104, 166, 0.06);
+  color: #292747;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.7;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.projectCard form input:focus,
-.projectCard form textarea:focus {
-  border-color: #6b7280;
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+.projectCard form input {
+  min-height: 44px;
 }
 
 .projectCard form textarea {
   min-height: 130px;
   resize: vertical;
-  line-height: 1.7;
+}
+
+.projectCard form input::placeholder,
+.projectCard form textarea::placeholder {
+  color: #aaa7bd;
+  opacity: 1;
+}
+
+.projectCard form input:focus,
+.projectCard form textarea:focus {
+  border-color: #9285f5;
+  box-shadow: 0 0 0 3px rgba(116, 98, 232, 0.12);
+}
+
+.projectCard form [role="alert"] {
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid #f2c5cb;
+  border-radius: 10px;
+  background: #fff0f1;
+  color: #a52d43;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* Actions */
@@ -140,9 +202,18 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 25px;
 }
+
+.projectCard form .actions {
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(116, 98, 232, 0.14);
+}
+
+/* Shared button styles */
 
 .primaryButton,
 .secondaryButton,
@@ -150,44 +221,59 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 11px 16px;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
+  min-height: 41px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.5;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition:
     background 0.2s ease,
+    box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
+/* Edit and save */
+
 .primaryButton {
-  background: #111827;
+  background: #7462e8;
   color: #ffffff;
+  box-shadow: 3px 4px 8px rgba(105, 86, 216, 0.17);
 }
 
 .primaryButton:hover {
-  background: #374151;
+  background: #6252d2;
+  box-shadow: 4px 5px 10px rgba(105, 86, 216, 0.22);
+  transform: translateY(-1px);
 }
 
+/* Cancel */
+
 .secondaryButton {
-  background: #f3f4f6;
-  color: #374151;
+  background: #ebe8f8;
+  color: #625c7a;
+  box-shadow: 2px 3px 6px rgba(112, 104, 166, 0.07);
 }
 
 .secondaryButton:hover {
-  background: #e5e7eb;
+  background: #e2def3;
 }
 
+/* Delete */
+
 .dangerButton {
-  background: #fef2f2;
-  color: #b91c1c;
+  background: #fff0f1;
+  color: #b33e52;
+  box-shadow: 2px 3px 6px rgba(179, 62, 82, 0.06);
 }
 
 .dangerButton:hover {
-  background: #fee2e2;
+  background: #ffe1e5;
 }
 
 .primaryButton:active,
@@ -196,52 +282,111 @@
   transform: scale(0.98);
 }
 
-/* Not found state */
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.dangerButton:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.4);
+  outline-offset: 3px;
+}
+
+/* Project not found */
 
 .empty {
-  padding: 36px 22px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f8f7ff, #eeecfa);
+  box-shadow:
+    6px 6px 16px rgba(112, 104, 166, 0.08),
+    -6px -6px 16px rgba(255, 255, 255, 0.9);
   text-align: center;
 }
 
-.empty h2 {
+.empty h1 {
   margin: 0 0 10px;
-  color: #111827;
-  font-size: 20px;
+  color: #292747;
+  font-size: 23px;
+  font-weight: 800;
 }
 
 .empty p {
-  margin: 0 0 20px;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 0 22px;
+  color: #77758f;
+  font-size: 13px;
+  line-height: 1.8;
 }
 
 /* Responsive layout */
 
-@media (max-width: 650px) {
+@media (max-width: 760px) {
   .projectCard {
-    padding: 20px;
+    padding: 23px;
+    border-radius: 19px;
   }
 
   .header {
     flex-direction: column;
+    gap: 17px;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 25px;
+  }
+
+  .header > .actions {
+    margin-top: 0;
   }
 }
 
 @media (max-width: 480px) {
+  .projectCard {
+    padding: 18px;
+    border-radius: 17px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
   .actions {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .actions a,
   .actions button {
     width: 100%;
+  }
+
+  .empty {
+    padding: 32px 17px;
+  }
+
+  .empty h1 {
+    font-size: 21px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .backLink,
+  .projectCard form input,
+  .projectCard form textarea,
+  .primaryButton,
+  .secondaryButton,
+  .dangerButton {
+    transition: none;
+  }
+
+  .primaryButton:hover,
+  .primaryButton:active,
+  .secondaryButton:active,
+  .dangerButton:active {
+    transform: none;
   }
 }

@@ -1,73 +1,185 @@
+/* =========================================
+   DEVTRACK — CLAYMORPHISM TASKS PAGE
+   ========================================= */
 
 .page {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
+  min-width: 0;
   margin: 0 auto;
+  color: var(--text-primary, #292747);
+  animation: tasksEnter 400ms ease both;
 }
 
+/* Page header */
+
 .pageHeader {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .pageHeader h1 {
   margin: 0;
-  color: #111827;
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  color: var(--text-primary, #292747);
+  font-size: clamp(27px, 3vw, 35px);
+  font-weight: 850;
+  line-height: 1.25;
+  letter-spacing: -1px;
 }
 
 .pageHeader p {
-  margin: 8px 0 0;
-  color: #6b7280;
-  font-size: 15px;
-  line-height: 1.6;
+  max-width: 650px;
+  margin: 10px 0 0;
+  color: var(--text-secondary, #77758f);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
+/* Task list container */
+
 .taskList {
-  padding: 24px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+  min-width: 0;
+  padding: clamp(20px, 2.5vw, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 25px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.97),
+    rgba(242, 240, 255, 0.94)
+  );
+  box-shadow:
+    10px 10px 24px rgba(112, 104, 166, 0.09),
+    -8px -8px 22px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.95);
+  transition: box-shadow 220ms ease;
 }
+
+/* List heading */
 
 .listHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 15px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(123, 113, 174, 0.13);
 }
 
 .listHeader h2 {
   margin: 0;
-  color: #111827;
-  font-size: 19px;
-  font-weight: 650;
+  color: var(--text-primary, #292747);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
 }
+
+/* Completed / total counter */
 
 .taskCount {
-  padding: 5px 10px;
-  border-radius: 20px;
-  background: #f3f4f6;
-  color: #4b5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 32px;
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  background: linear-gradient(
+    145deg,
+    #eeeaff,
+    #e4dfff
+  );
+  box-shadow:
+    3px 3px 7px rgba(112, 104, 166, 0.08),
+    -3px -3px 7px rgba(255, 255, 255, 0.9);
+  color: var(--brand-primary, #7462e8);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
+  line-height: 1.4;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
+/* Entrance animation */
+
+@keyframes tasksEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+  .taskList {
+    border-radius: 22px;
+  }
+}
+
+/* Mobile */
+
 @media (max-width: 650px) {
+  .pageHeader {
+    margin-bottom: 23px;
+  }
+
   .pageHeader h1 {
-    font-size: 26px;
+    font-size: 27px;
+  }
+
+  .pageHeader p {
+    margin-top: 8px;
+    font-size: 13px;
   }
 
   .taskList {
-    padding: 18px;
+    padding: 19px 16px;
+    border-radius: 21px;
   }
 
   .listHeader {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 15px;
+  }
+
+  .listHeader h2 {
+    font-size: 19px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 380px) {
+  .taskList {
+    padding: 16px 12px;
+  }
+
+  .listHeader h2 {
+    font-size: 17px;
+  }
+
+  .taskCount {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .page,
+  .taskList {
+    animation: none;
+    transition: none;
   }
 }

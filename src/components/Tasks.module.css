@@ -1,15 +1,40 @@
+/* =========================================
+   DEVTRACK — CLAYMORPHISM TASK ITEM
+   ========================================= */
 
 .item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 0;
-  border-bottom: 1px solid #f0f1f3;
+  gap: 18px;
+  min-width: 0;
+  padding: 17px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f2efff
+  );
+  box-shadow:
+    5px 5px 13px rgba(112, 104, 166, 0.07),
+    -5px -5px 13px rgba(255, 255, 255, 0.95),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.95);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
 }
 
-.item:last-child {
-  border-bottom: none;
+.item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(146, 133, 245, 0.3);
+  box-shadow:
+    7px 9px 17px rgba(112, 104, 166, 0.1),
+    -5px -5px 13px rgba(255, 255, 255, 0.98);
 }
+
+/* Task details */
 
 .details {
   flex: 1;
@@ -18,76 +43,216 @@
 
 .title {
   margin: 0;
-  color: #1f2937;
+  color: var(--text-primary, #292747);
   font-size: 14px;
-  line-height: 1.6;
+  font-weight: 650;
+  line-height: 1.65;
   overflow-wrap: anywhere;
+  transition: color 180ms ease;
+}
+
+/* Completed state */
+
+.completed {
+  background: linear-gradient(
+    145deg,
+    #f0faf5,
+    #e8f5ef
+  );
+  border-color: rgba(167, 220, 192, 0.55);
+  box-shadow:
+    5px 5px 12px rgba(66, 145, 105, 0.06),
+    -5px -5px 12px rgba(255, 255, 255, 0.95);
 }
 
 .completed .title {
-  color: #9ca3af;
+  color: #7d9b8a;
   text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
 }
+
+/* Action buttons */
 
 .actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 8px;
+  flex-shrink: 0;
 }
 
+.actions button,
+.editForm button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.actions button:hover,
+.editForm button:hover {
+  transform: translateY(-1px);
+}
+
+.actions button:active,
+.editForm button:active {
+  transform: translateY(0);
+}
+
+/* Complete / pending button */
+
 .completeButton {
-  background: #ecfdf5;
-  color: #047857;
+  background: linear-gradient(
+    145deg,
+    #e6f9ef,
+    #d5f1e2
+  );
+  color: #18784f;
+  box-shadow:
+    3px 3px 7px rgba(49, 139, 93, 0.08),
+    -3px -3px 7px rgba(255, 255, 255, 0.95);
 }
 
 .completeButton:hover {
-  background: #d1fae5;
+  background: #d8f4e5;
+  box-shadow: 4px 5px 9px rgba(49, 139, 93, 0.12);
 }
 
+/* Edit button */
+
 .editButton {
-  background: #f3f4f6;
-  color: #374151;
+  background: linear-gradient(
+    145deg,
+    #eeeaff,
+    #e4dfff
+  );
+  color: #6252d2;
+  box-shadow:
+    3px 3px 7px rgba(112, 104, 166, 0.08),
+    -3px -3px 7px rgba(255, 255, 255, 0.95);
 }
 
 .editButton:hover {
-  background: #e5e7eb;
+  background: #e8e2ff;
 }
 
+/* Delete button */
+
 .deleteButton {
-  background: #fef2f2;
-  color: #b91c1c;
+  background: linear-gradient(
+    145deg,
+    #fff0f1,
+    #ffe4e7
+  );
+  color: #bd4354;
+  box-shadow:
+    3px 3px 7px rgba(180, 67, 84, 0.07),
+    -3px -3px 7px rgba(255, 255, 255, 0.95);
 }
 
 .deleteButton:hover {
-  background: #fee2e2;
+  background: #ffe5e8;
 }
+
+/* Inline edit form */
 
 .editForm {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
+  min-width: 0;
 }
 
 .input {
   flex: 1;
+  width: 100%;
   min-width: 0;
+  min-height: 40px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  outline: none;
+  background: #fbfaff;
+  box-shadow:
+    inset 2px 2px 5px rgba(112, 104, 166, 0.06),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.95);
+  color: var(--text-primary, #292747);
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
+.input:focus {
+  border-color: rgba(116, 98, 232, 0.6);
+  box-shadow: 0 0 0 3px rgba(116, 98, 232, 0.1);
+}
+
+/* Cancel button */
+
 .secondaryButton {
-  background: #f3f4f6;
-  color: #374151;
+  background: linear-gradient(
+    145deg,
+    #f1f0f8,
+    #e7e5f1
+  );
+  color: #68657e;
+  box-shadow:
+    3px 3px 7px rgba(112, 104, 166, 0.07),
+    -3px -3px 7px rgba(255, 255, 255, 0.95);
 }
 
 .secondaryButton:hover {
-  background: #e5e7eb;
+  background: #eae8f5;
+}
+
+/* Keyboard accessibility */
+
+.item button:focus-visible,
+.input:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.5);
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 850px) {
+  .item {
+    gap: 13px;
+    padding: 15px;
+  }
+
+  .actions {
+    gap: 7px;
+  }
+
+  .actions button {
+    padding: 8px 10px;
+  }
 }
 
 @media (max-width: 650px) {
   .item {
     align-items: flex-start;
     flex-direction: column;
+    gap: 14px;
+    padding: 17px;
+    border-radius: 17px;
   }
 
   .details {
@@ -96,10 +261,54 @@
 
   .actions {
     width: 100%;
+    justify-content: flex-start;
   }
 
   .editForm {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .editForm button {
+    width: 100%;
+    min-height: 39px;
+  }
+}
+
+@media (max-width: 380px) {
+  .item {
+    padding: 14px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .actions button {
+    width: 100%;
+    padding: 9px 7px;
+  }
+
+  .actions .completeButton {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .title,
+  .actions button,
+  .editForm button,
+  .input {
+    transition: none;
+  }
+
+  .item:hover,
+  .actions button:hover,
+  .editForm button:hover {
+    transform: none;
   }
 }

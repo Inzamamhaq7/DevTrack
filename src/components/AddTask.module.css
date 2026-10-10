@@ -1,53 +1,151 @@
+/* =========================================
+   DEVTRACK — CLAYMORPHISM ADD TASK
+   ========================================= */
 
 .form {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 13px;
+  min-width: 0;
   margin-bottom: 28px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 21px;
+  background: linear-gradient(
+    145deg,
+    #f0eefb,
+    #f8f7ff
+  );
+  box-shadow:
+    inset 4px 4px 8px rgba(112, 104, 166, 0.07),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.95);
 }
+
+/* Task input */
 
 .input {
   flex: 1;
+  width: 100%;
   min-width: 0;
-  padding: 12px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #111827;
-  font-size: 14px;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fbfaff;
+  box-shadow:
+    inset 2px 2px 5px rgba(112, 104, 166, 0.06),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.95);
+  color: var(--text-primary, #292747);
+  font-family: inherit;
+  font-size: 14px;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+.input::placeholder {
+  color: #9996b0;
+}
+
+.input:hover {
+  border-color: rgba(146, 133, 245, 0.3);
 }
 
 .input:focus {
-  border-color: #6b7280;
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+  border-color: rgba(116, 98, 232, 0.6);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 3px rgba(116, 98, 232, 0.1),
+    inset 2px 2px 5px rgba(112, 104, 166, 0.04);
 }
 
+/* Add button */
+
 .button {
+  display: inline-flex;
   flex-shrink: 0;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #111827;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary, #7462e8),
+    var(--brand-secondary, #9285f5)
+  );
+  box-shadow:
+    4px 5px 10px rgba(116, 98, 232, 0.2),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.22);
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
 }
 
 .button:hover {
-  background: #374151;
+  transform: translateY(-2px);
+  box-shadow:
+    5px 7px 13px rgba(116, 98, 232, 0.27),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.25);
+  filter: brightness(1.04);
 }
+
+.button:active {
+  transform: translateY(0);
+  box-shadow:
+    2px 2px 5px rgba(116, 98, 232, 0.18),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Keyboard accessibility */
+
+.input:focus-visible,
+.button:focus-visible {
+  outline: 3px solid rgba(116, 98, 232, 0.45);
+  outline-offset: 3px;
+}
+
+/* Mobile */
 
 @media (max-width: 600px) {
   .form {
     align-items: stretch;
     flex-direction: column;
+    gap: 11px;
+    padding: 13px;
+    border-radius: 18px;
+  }
+
+  .input {
+    min-height: 45px;
   }
 
   .button {
     width: 100%;
+    min-height: 45px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .button {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active {
+    transform: none;
   }
 }
