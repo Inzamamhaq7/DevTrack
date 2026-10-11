@@ -124,7 +124,7 @@
 .info strong {
   overflow: hidden;
   color: #383452;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.5;
   text-overflow: ellipsis;
@@ -177,13 +177,13 @@
   }
 
   .brand h1 {
-    font-size: 17px;
+    font-size: 18px;
     letter-spacing: -0.6px;
     white-space: nowrap;
   }
 
   .brand span {
-    font-size: 9px;
+    font-size: 10px;
     white-space: nowrap;
   }
 
@@ -193,6 +193,7 @@
     max-width: 125px;
     padding: 5px 7px 5px 5px;
     border-radius: 14px;
+    margin-right: 10px;
   }
 
   .avatar {
